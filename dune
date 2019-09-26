@@ -1,0 +1,8 @@
+(executable
+ (name http_client)
+ (libraries cohttp-lwt-unix lwt))
+
+(env
+ (static
+  (flags
+   (:standard -ccopt -static))))
