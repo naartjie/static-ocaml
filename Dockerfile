@@ -9,10 +9,10 @@ RUN mkdir /home/opam/app
 WORKDIR /home/opam/app
 
 ENV PATH=/home/opam/.opam/4.08/bin:$PATH
-COPY . . 
+COPY . .
 RUN dune build ./http_client.exe --profile=static
 
 FROM alpine:latest
-COPY --from=builder /home/opam/app/_build/default/http_client.exe /app/http_client
+COPY --from=builder /home/opam/app/_build/default/http_client.exe /app/http_client.exe
 CMD ["/app/http_client.exe"]
 
